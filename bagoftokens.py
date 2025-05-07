@@ -1,45 +1,22 @@
-a=list(map(int,input()))
+tokens=list(map(int,input().split()))
 power=int(input())
+
 left=0
-right=len(a)-1
-maxscore=0
+right=len(tokens)-1
 score=0
+maxscore=0
 
 while left<=right:
-    if power>=a[left]:
-        power-=a[left]
+    if power>=tokens[left]:
+        power-=power[left]
         left+=1
         score+=1
         maxscore=max(maxscore,score)
-
     elif score>0:
-        power+=a[right]
+        power+=tokens[right]
         right-=1
         score-=1
         maxscore=max(maxscore,score)
-
-    else:
-        break
-print(maxscore)
-
-a=list(map(int,input().split()))
-left=0
-right=len(a)-1
-score=0
-maxscore=0
-
-for i in a:
-    if power>=a[left]:
-        power-=a[left]
-        score+=1
-        left+=1
-        maxscore=max(maxscore,score)
-    elif score>0:
-        power+=a[right]
-        score-=1
-        right-=1
-        maxscore=max(maxscore,score)
-
     else:
         break
 print(maxscore)
