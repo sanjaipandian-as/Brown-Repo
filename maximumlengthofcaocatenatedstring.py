@@ -1,14 +1,16 @@
-arr=input().split()
 
-max_lenght=0
+
 def backtrack(index,path):
-    global max_lenght
+    global maxlength
     if len(path)==len(set(path)):
-        max_lenght=max(max_lenght,len(path))
+        maxlength=max(maxlength,len(path))
     for i in range(index,len(arr)):
         backtrack(i+1,path+arr[i])
-    
+    return maxlength
 
+
+arr=input()
+maxlength=0
 backtrack(0,"")
-  
-print(max_lenght)
+
+print(maxlength)
